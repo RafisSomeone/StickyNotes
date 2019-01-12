@@ -42,6 +42,7 @@ public class Menu {
 for(PreNote preNote : noteAdder.getPreNotes())
 {
     root.getChildren().add(preNote.getGroup());
+
 }
 
 

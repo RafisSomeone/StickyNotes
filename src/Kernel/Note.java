@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 
 
 public class Note {
-    int  NoteID ;
+    private int  NoteID ;
     private Stage stage;
     private Scene scene ;
     private StackPane stackPane ;

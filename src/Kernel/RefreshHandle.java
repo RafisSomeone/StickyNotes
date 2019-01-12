@@ -22,12 +22,7 @@ this.noteAdder=noteAdder;
     @Override
     public void handle(ActionEvent event) {
 
-        Note note = null;
-        try {
-            note = new Note();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         VBox root = new VBox();
         ScrollPane scrollPane = new ScrollPane();
         root.setStyle("-fx-background-color: blue");
@@ -40,7 +35,12 @@ this.noteAdder=noteAdder;
        Button button = new Button();
        button.setOnAction(new RefreshHandle(noteAdder));
 
-       noteAdder.noteAdd(note.getNodeID());
+        Note note = null;
+        try {
+            note = noteAdder.noteAdd();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         for(PreNote preNote : noteAdder.getPreNotes())
         {
