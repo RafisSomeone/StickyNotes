@@ -17,9 +17,10 @@ public class PreNote  {
     StackPane stackPane = new StackPane();
     Label title = new Label("Title");
     Button delete = new Button();
+    int NodeId;
 
-    public PreNote(){
-
+    public PreNote(int id){
+        this.NodeId=id;
         this.stackPane.setPrefSize(182,50);
         this.stackPane.getChildren().add(this.title);
         this.stackPane.setStyle("-fx-background-color: yellow");
@@ -30,6 +31,7 @@ public class PreNote  {
     }
 
     public Group getGroup() {
-        return new Group(stackPane);
+        return new Group(this.stackPane);
     }
+    public void setNodeId(int id){this.NodeId=id;}
 }

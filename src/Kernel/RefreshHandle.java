@@ -9,6 +9,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class RefreshHandle implements EventHandler<ActionEvent> {
 
  private NoteAdder noteAdder;
@@ -20,7 +22,12 @@ this.noteAdder=noteAdder;
     @Override
     public void handle(ActionEvent event) {
 
-        Note note = new Note();
+        Note note = null;
+        try {
+            note = new Note();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         VBox root = new VBox();
         ScrollPane scrollPane = new ScrollPane();
         root.setStyle("-fx-background-color: blue");
@@ -33,7 +40,7 @@ this.noteAdder=noteAdder;
        Button button = new Button();
        button.setOnAction(new RefreshHandle(noteAdder));
 
-       noteAdder.noteAdd();
+       noteAdder.noteAdd(note.getNodeID());
 
         for(PreNote preNote : noteAdder.getPreNotes())
         {
@@ -48,12 +55,12 @@ this.noteAdder=noteAdder;
 
         stage.setResizable(false);
         stage.show();
-        note.dispaly();
+        note.newDisplay();
 
 
 
         //  menu.display(stage);
-    // note.dispaly();
+    // note.newDisplay();
 
 
     }

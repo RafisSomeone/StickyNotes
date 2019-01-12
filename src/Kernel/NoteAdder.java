@@ -13,8 +13,8 @@ import java.util.List;
 public class NoteAdder {
 List<PreNote> preNotes= new LinkedList<>();
 
-    public void noteAdd (){
-        PreNote preNote = new PreNote();
+    public void noteAdd (int id){
+        PreNote preNote = new PreNote(id);
         preNotes.add(preNote);
 
     }

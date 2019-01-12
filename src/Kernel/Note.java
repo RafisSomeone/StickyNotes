@@ -14,7 +14,7 @@ import java.io.*;
 
 
 public class Note {
-    long  NoteID ;
+    int  NoteID ;
     private Stage stage;
     private Scene scene ;
     private StackPane stackPane ;
@@ -23,8 +23,10 @@ public class Note {
 
 
 
-    public Note() {
-       // this.NoteID=IDNode;
+    public Note() throws IOException {
+        NodeID id = new NodeID();
+        id.increaseID();
+        this.NoteID=id.getID();
         stage = new Stage();
         stackPane = new StackPane();
         textArea = new TextArea();
@@ -33,8 +35,13 @@ public class Note {
         stage.setScene(scene);
 
     }
+    public int getNodeID()
+    {
+        return this.NoteID;
+    }
 
-    public void dispaly() {
+
+    public void newDisplay() {
 
         stage.setResizable(false);
         this.stage.show();
@@ -65,5 +72,7 @@ public class Note {
 
 
     }
+
+
 
 }
