@@ -47,11 +47,12 @@ public class Note {
             public void handle(WindowEvent event) {
                 String string = textArea.getText();
 
-                File file = new File(new File(System.getProperty("user.home")) + File.separator + "StickyNotes" + File.separator + "plik.txt");
+                File file = new File(new File(System.getProperty("user.home")) + File.separator + "StickyNotes" + File.separator +NoteID+".txt");
                 try {
                     FileWriter writer = new FileWriter(file);
                     BufferedWriter bufferedWriter = new BufferedWriter(writer);
                     bufferedWriter.write(string);
+                    bufferedWriter.close();
 
                 } catch (IOException e) {
                     e.printStackTrace();

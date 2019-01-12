@@ -22,4 +22,5 @@ List<PreNote> preNotes= new LinkedList<>();
     public List<PreNote> getPreNotes() {
         return preNotes;
     }
+
 }

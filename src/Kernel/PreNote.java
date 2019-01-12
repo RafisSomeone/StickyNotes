@@ -15,8 +15,6 @@ import javafx.scene.paint.Color;
 
 public class PreNote  {
     StackPane stackPane = new StackPane();
-    Image image = new Image("https://gfx.chillizet.pl/var/zetchilli/storage/images/news/ludzie/3-rzeczy-ktore-najbardziej-podobaja-sie-mezczyznom-w-twarzy-kobiet-9734/577664-1-pol-PL/Te-3-rzeczy-w-twarzy-kobiet-najbardziej-podobaja-sie-mezczyznom_article.jpg");
-    ImageView pic = new ImageView(image);
     Label title = new Label("Title");
     Button delete = new Button();
 
