@@ -29,6 +29,10 @@ public class Data {
             bufferedWriter.close();
         }
 
+        NodeID id = new NodeID();
+        id.getID();
+        id.increaseID();
+
 
     }
 
