@@ -12,9 +12,10 @@ import java.util.List;
 
 public class NoteAdder {
 List<PreNote> preNotes= new LinkedList<>();
-
+List<Note> notes= new LinkedList<>();
     public void noteAdd (int id){
         PreNote preNote = new PreNote(id);
+
         preNotes.add(preNote);
 
     }

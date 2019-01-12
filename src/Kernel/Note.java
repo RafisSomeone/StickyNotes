@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class Note {
@@ -46,6 +48,7 @@ public class Note {
         stage.setResizable(false);
         this.stage.show();
         textArea.setWrapText(true);
+        textArea.setStyle("-fx-control-inner-background:#000000; -fx-font-family: Consolas; -fx-highlight-fill: #00ff00; -fx-highlight-text-fill: #000000; -fx-text-fill: #00ff00; ");
 
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -72,6 +75,8 @@ public class Note {
 
 
     }
+
+
 
 
 
