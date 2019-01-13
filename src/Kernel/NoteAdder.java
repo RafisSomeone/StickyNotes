@@ -26,8 +26,9 @@ public NoteAdder (Stage main)
 
     public Note noteAdd () throws IOException {
 
-        Note note = new Note();
+        Note note = new Note(this);
         PreNote preNote = new PreNote(note.getNodeID());
+
         preNote.setOpenAction(note);
         preNotes.add(preNote);
 
@@ -58,4 +59,7 @@ public NoteAdder (Stage main)
         this.notes=notes;
     }
 
+    public Stage getMain() {
+        return main;
+    }
 }

@@ -20,7 +20,7 @@ import java.nio.file.Paths;
 
 
 public class Note  {
-    private Stage main;
+
     private int NoteID;
     private Stage stage;
     private Scene scene;
@@ -31,10 +31,10 @@ public class Note  {
     private Button edit;
     private EditWindow editWindow;
     private NoteSettings noteSettings;
-    private Stage main;
+    private NoteAdder noteAdder;
 
-    public Note(Stage main) throws IOException {
-        this.main=stage;
+    public Note(NoteAdder noteAdder) throws IOException {
+        this.noteAdder=noteAdder;
         NodeID id = new NodeID();
         id.increaseID();
         this.NoteID = id.getID();
@@ -60,7 +60,8 @@ public class Note  {
 
     }
 
-    public Note(TextArea textArea) throws IOException {
+    public Note(TextArea textArea,NoteAdder noteAdder) throws IOException {
+        this.noteAdder=noteAdder;
         NodeID id = new NodeID();
         id.increaseID();
         this.NoteID = id.getID();
@@ -153,6 +154,7 @@ public class Note  {
 
 
 
+
                 File file = new File(new File(System.getProperty("user.home")) + File.separator + "StickyNotes" + File.separator + NoteID + ".txt");
                 try {
                     FileWriter writer = new FileWriter(file);
@@ -165,7 +167,8 @@ public class Note  {
                 }
 
 
-                System.out.println(outPut);
+
+                new Refresh().refresh(noteAdder.getMain(), noteAdder);
             }
         });
 

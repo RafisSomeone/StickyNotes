@@ -1,17 +1,12 @@
 package Kernel;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.util.Objects;
 
 public class PreNote {
     StackPane stackPane = new StackPane();
@@ -57,7 +52,7 @@ public class PreNote {
                 note.getEditWindow().closeEdit();
                 note.closeStage();
                 noteAdder.deleteNote(preNote);
-                new Refresh().Refresh(stage, noteAdder);
+                new Refresh().refresh(stage, noteAdder);
 
             }
         });

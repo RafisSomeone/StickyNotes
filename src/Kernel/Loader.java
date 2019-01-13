@@ -44,7 +44,7 @@ public class Loader {
             }
             TextArea textArea = new TextArea();
             textArea.setText(text);
-            Note note = new Note(textArea);
+            Note note = new Note(textArea,noteAdder);
             note.setNoteSettings(noteSettings);
 
             note.setNoteID(id);
