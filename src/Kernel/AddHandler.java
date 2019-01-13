@@ -25,7 +25,7 @@ this.noteAdder=noteAdder;
 
         VBox root = new VBox();
         ScrollPane scrollPane = new ScrollPane();
-        root.setStyle("-fx-background-color: blue");
+
 
         scrollPane.setContent(root);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -34,7 +34,7 @@ this.noteAdder=noteAdder;
 
        Button button = new Button();
        button.setOnAction(new AddHandler(noteAdder));
-
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Note note = null;
         try {
             note = noteAdder.noteAdd();
@@ -47,11 +47,11 @@ this.noteAdder=noteAdder;
             root.getChildren().add(preNote.getGroup());
         }
         PreNote last = noteAdder.getPreNotes().getLast();
-
+        last.refreshPrenote(note);
         root.getChildren().add(button);
 
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
 
         stage.setScene(scene);
 

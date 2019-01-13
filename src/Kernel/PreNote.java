@@ -19,7 +19,6 @@ public class PreNote {
     Button delete = new Button();
     int NoteID;
     Button open = new Button();
-
     public PreNote(int id) {
         this.NoteID = id;
         this.stackPane.setPrefSize(182, 50);
@@ -28,11 +27,24 @@ public class PreNote {
         this.stackPane.setStyle("-fx-background-color: yellow");
         this.delete.setTranslateX(60);
         this.delete.setTranslateY(0);
+        this.title.setTranslateX(-20);
 
         this.open.setPrefSize(182, 50);
         this.stackPane.getChildren().add(this.open);
         this.open.setStyle("-fx-background-color: transparent;");
         this.stackPane.getChildren().add(this.delete);
+
+
+    }
+
+    public void refreshPrenote(Note note)
+    {
+        NoteSettings noteSettings = note.getNoteSettings();
+        this.stackPane.setStyle("-fx-background-color: "+noteSettings.getBackgroundColor()+";");
+        String text = note.getText();
+        if(text.length()>14) text=text.substring(0,14)+"...";
+        this.title.setText(text);
+        this.title.setStyle(noteSettings.getSettings());
 
 
     }

@@ -12,6 +12,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -20,13 +21,15 @@ import java.util.List;
 public class EditWindow {
     private Stage stage;
 
-    public EditWindow() {
+    public EditWindow()  {
+
 
         this.stage = new Stage();
 
     }
 
     public void displayEdit(NoteSettings noteSettings, Note note) {
+
         StackPane stackPane = new StackPane();
         List<String> fonts = getFonts();
         ComboBox fontBox = new ComboBox();

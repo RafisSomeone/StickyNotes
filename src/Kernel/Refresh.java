@@ -12,7 +12,7 @@ public class Refresh {
     {
         VBox root = new VBox();
         ScrollPane scrollPane = new ScrollPane();
-        root.setStyle("-fx-background-color: blue");
+
 
         scrollPane.setContent(root);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
@@ -23,6 +23,7 @@ public class Refresh {
         button.setOnAction(new AddHandler(noteAdder));
         for(PreNote preNote : noteAdder.getPreNotes())
         {
+
             root.getChildren().add(preNote.getGroup());
         }
             root.getChildren().add(button);

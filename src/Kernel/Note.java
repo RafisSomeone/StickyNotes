@@ -19,7 +19,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
-public class Note {
+public class Note  {
+    private Stage main;
     private int NoteID;
     private Stage stage;
     private Scene scene;
@@ -30,8 +31,10 @@ public class Note {
     private Button edit;
     private EditWindow editWindow;
     private NoteSettings noteSettings;
+    private Stage main;
 
-    public Note() throws IOException {
+    public Note(Stage main) throws IOException {
+        this.main=stage;
         NodeID id = new NodeID();
         id.increaseID();
         this.NoteID = id.getID();
@@ -83,9 +86,9 @@ public class Note {
 
     }
 
-    public void setTextArea(TextArea textArea)
+    public String getText()
     {
-
+        return this.textArea.getText();
     }
     public void setNoteSettings(NoteSettings noteSettings)
     {
@@ -138,8 +141,6 @@ public class Note {
         this.stage.show();
         this.textArea.setWrapText(true);
         this.textArea.setStyle(this.noteSettings.getSettings());
-        //this.textArea.setStyle("-fx-control-inner-background:#000000; -fx-font-family: Consolas; -fx-highlight-fill: #00ff00; -fx-highlight-text-fill: #000000; -fx-text-fill: #00ff00; ");
-
 
         this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -149,6 +150,8 @@ public class Note {
                 String outPut = noteSettings.getFont().trim()+"\n"+noteSettings.getFontColor().trim()+"\n"+noteSettings.getBackgroundColor().trim()+"\n";
                 outPut=outPut+textArea.getText();
                 editWindow.closeEdit();
+
+
 
                 File file = new File(new File(System.getProperty("user.home")) + File.separator + "StickyNotes" + File.separator + NoteID + ".txt");
                 try {

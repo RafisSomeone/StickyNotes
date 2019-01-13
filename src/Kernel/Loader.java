@@ -50,6 +50,7 @@ public class Loader {
             note.setNoteID(id);
             PreNote preNote = new PreNote(id);
             preNotes.add(preNote);
+            preNote.refreshPrenote(note);
             preNote.setOpenAction(note);
             preNote.setDeleteAction(noteAdder,preNote,stage,note);
             notes.add(note);

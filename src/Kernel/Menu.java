@@ -16,17 +16,17 @@ public class Menu {
     private VBox root;
     private List<PreNote> preNotes = new LinkedList<>();
 
-    // private Stage stage;
+     private Stage stage;
 
-    public Menu() {
+    public Menu(Stage stage) {
         root = new VBox();
+        this.stage=stage;
     }
 
 
 
     public void display(Stage stage,NoteAdder noteAdder) {
 
-        root.setStyle("-fx-background-color: blue");
 
         ScrollPane scrollPane = new ScrollPane();
 
@@ -61,6 +61,11 @@ for(PreNote preNote : noteAdder.getPreNotes())
 
 
 
+    }
+
+    public Stage getStage()
+    {
+        return this.stage;
     }
 
 

@@ -16,6 +16,14 @@ import java.util.List;
 public class NoteAdder {
 List<PreNote> preNotes= new LinkedList<>();
 List<Note> notes= new LinkedList<>();
+private Stage main;
+
+public NoteAdder (Stage main)
+{
+    this.main=main;
+}
+
+
     public Note noteAdd () throws IOException {
 
         Note note = new Note();
