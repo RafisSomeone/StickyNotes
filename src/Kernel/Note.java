@@ -37,6 +37,11 @@ public class Note {
         stage.setScene(scene);
 
     }
+    public void closeStage()
+    {
+        this.stage.close();
+    }
+
     public Stage getStage()
     {
         return this.stage;

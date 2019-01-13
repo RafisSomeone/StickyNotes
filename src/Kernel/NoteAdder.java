@@ -40,4 +40,8 @@ List<Note> notes= new LinkedList<>();
         return (LinkedList<PreNote>) preNotes;
     }
 
+    public LinkedList<Note> getNotes() {
+        return (LinkedList<Note>) notes;
+    }
+
 }

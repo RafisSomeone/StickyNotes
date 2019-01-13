@@ -56,7 +56,7 @@ this.noteAdder=noteAdder;
         stage.setScene(scene);
 
         stage.setResizable(false);
-        last.setDeleteAction(noteAdder,last,stage);
+        last.setDeleteAction(noteAdder,last,stage,note);
         stage.show();
         note.newDisplay();
 

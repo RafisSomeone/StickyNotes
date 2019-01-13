@@ -13,23 +13,23 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
-public class PreNote  {
+public class PreNote {
     StackPane stackPane = new StackPane();
     Label title = new Label("Title");
     Button delete = new Button();
     int NoteID;
     Button open = new Button();
 
-    public PreNote(int id){
-        this.NoteID =id;
-        this.stackPane.setPrefSize(182,50);
+    public PreNote(int id) {
+        this.NoteID = id;
+        this.stackPane.setPrefSize(182, 50);
 
         this.stackPane.getChildren().add(this.title);
         this.stackPane.setStyle("-fx-background-color: yellow");
         this.delete.setTranslateX(60);
         this.delete.setTranslateY(0);
 
-        this.open.setPrefSize(182,50);
+        this.open.setPrefSize(182, 50);
         this.stackPane.getChildren().add(this.open);
         this.open.setStyle("-fx-background-color: transparent;");
         this.stackPane.getChildren().add(this.delete);
@@ -38,25 +38,25 @@ public class PreNote  {
     }
 
 
-
-    public void setDeleteAction(NoteAdder noteAdder, PreNote preNote, Stage stage)
-    {
+    public void setDeleteAction(NoteAdder noteAdder, PreNote preNote, Stage stage,Note note) {
         this.delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-            noteAdder.deleteNote(preNote);
-            new Refresh().Refresh(stage,noteAdder);
+
+                note.closeStage();
+                noteAdder.deleteNote(preNote);
+                new Refresh().Refresh(stage, noteAdder);
+
             }
         });
 
     }
-    public int getNodeID()
-    {
+
+    public int getNodeID() {
         return this.NoteID;
     }
 
-    public void setOpenAction(Note note)
-    {
+    public void setOpenAction(Note note) {
         this.open.setOnDragDetected((EventHandler<Event>) event -> note.newDisplay());
         //this.open.setOnAction((EventHandler<ActionEvent>) event -> note.newDisplay());
     }
@@ -64,7 +64,10 @@ public class PreNote  {
     public Group getGroup() {
         return new Group(this.stackPane);
     }
-    public void setNoteID(int id){this.NoteID =id;}
+
+    public void setNoteID(int id) {
+        this.NoteID = id;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -75,5 +78,5 @@ public class PreNote  {
     }
 
 
-    }
+}
 
