@@ -42,7 +42,7 @@ public class PreNote {
         this.delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                note.getEditWindow().closeEdit();
                 note.closeStage();
                 noteAdder.deleteNote(preNote);
                 new Refresh().Refresh(stage, noteAdder);
