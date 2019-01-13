@@ -39,14 +39,14 @@ public String getBackgroundColor()
 }
 
     public void setFont(String font) {
-        this.font = font;
+        this.font = "-fx-font-family: "+font+";";
     }
 
     public void setFontColor(String fontColor) {
-        this.fontColor = fontColor;
+        this.fontColor = "-fx-text-fill: "+fontColor+";";
     }
 
     public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
+        this.backgroundColor = "-fx-control-inner-background: "+backgroundColor+";";
     }
 }

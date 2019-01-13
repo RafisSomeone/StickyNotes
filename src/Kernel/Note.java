@@ -52,9 +52,18 @@ public class Note {
         this.textArea.setPrefSize(300, 290);
         this.editWindow = new EditWindow();
         this.noteSettings = new NoteSettings();
-        this.edit.setOnAction(e -> editWindow.displayEdit(this.noteSettings));
+        this.edit.setOnAction(e -> editWindow.displayEdit(this.noteSettings,this));
 
 
+    }
+    public void changeFont(String font)
+    {
+        this.noteSettings.setFont(font);
+
+    }
+    public void changeFontColor(String color)
+    {
+        this.noteSettings.setFontColor(color);
     }
 
     public NoteSettings getNoteSettings() {
