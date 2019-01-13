@@ -57,8 +57,8 @@ public class PreNote {
     }
 
     public void setOpenAction(Note note) {
-        this.open.setOnDragDetected((EventHandler<Event>) event -> note.newDisplay());
-        //this.open.setOnAction((EventHandler<ActionEvent>) event -> note.newDisplay());
+       // this.open.setOnDragDetected((EventHandler<Event>) event -> note.newDisplay());
+        this.open.setOnAction((EventHandler<ActionEvent>) event -> note.newDisplay());
     }
 
     public Group getGroup() {

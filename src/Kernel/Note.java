@@ -56,6 +56,41 @@ public class Note {
 
 
     }
+
+    public Note(TextArea textArea) throws IOException {
+        NodeID id = new NodeID();
+        id.increaseID();
+        this.NoteID = id.getID();
+        this.edit = new Button();
+        this.vbox = new VBox();
+        this.pane = new Pane();
+        this.pane.getChildren().add(edit);
+        this.edit.setPrefSize(300, 10);
+        this.stage = new Stage();
+        this.stackPane = new StackPane();
+        this.textArea = textArea;
+        this.vbox.getChildren().add(this.pane);
+        this.vbox.getChildren().add(this.stackPane);
+        this.stackPane.getChildren().add(this.textArea);
+        this.scene = new Scene(this.vbox, 300, 300);
+        this.stage.setScene(this.scene);
+        this.pane.setPrefSize(300, 10);
+        this.textArea.setPrefSize(300, 290);
+        this.editWindow = new EditWindow();
+        this.noteSettings = new NoteSettings();
+        this.edit.setOnAction(e -> editWindow.displayEdit(this.noteSettings,this));
+
+
+    }
+
+    public void setTextArea(TextArea textArea)
+    {
+
+    }
+    public void setNoteSettings(NoteSettings noteSettings)
+    {
+        this.noteSettings=noteSettings;
+    }
     public void changeFont(String font)
     {
         this.noteSettings.setFont(font);
@@ -64,6 +99,11 @@ public class Note {
     public void changeFontColor(String color)
     {
         this.noteSettings.setFontColor(color);
+    }
+
+    public void changeBackGroundColor(String color)
+    {
+        this.noteSettings.setBackgroundColor(color);
     }
 
     public NoteSettings getNoteSettings() {
@@ -105,14 +145,16 @@ public class Note {
             @Override
 
             public void handle(WindowEvent event) {
-                String string = textArea.getText();
+
+                String outPut = noteSettings.getFont().trim()+"\n"+noteSettings.getFontColor().trim()+"\n"+noteSettings.getBackgroundColor().trim()+"\n";
+                outPut=outPut+textArea.getText();
                 editWindow.closeEdit();
 
                 File file = new File(new File(System.getProperty("user.home")) + File.separator + "StickyNotes" + File.separator + NoteID + ".txt");
                 try {
                     FileWriter writer = new FileWriter(file);
                     BufferedWriter bufferedWriter = new BufferedWriter(writer);
-                    bufferedWriter.write(string);
+                    bufferedWriter.write(outPut);
                     bufferedWriter.close();
 
                 } catch (IOException e) {
@@ -120,7 +162,7 @@ public class Note {
                 }
 
 
-                System.out.println(string);
+                System.out.println(outPut);
             }
         });
 

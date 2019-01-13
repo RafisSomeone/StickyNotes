@@ -40,8 +40,8 @@ Loader load = new Loader();
 
         Path path = Paths.get(System.getProperty("user.home")+ File.separator+"StickyNotes"+File.separator+id+".txt");
 
-        File toDelet = new File (String.valueOf(path));
-        toDelet.delete();
+        File toDelete = new File (String.valueOf(path));
+        toDelete.delete();
 
     }
 

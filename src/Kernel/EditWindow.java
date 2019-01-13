@@ -19,8 +19,6 @@ import java.util.List;
 
 public class EditWindow {
     private Stage stage;
-    private StackPane stackPane;
-    private Scene scene;
 
     public EditWindow() {
 
@@ -29,15 +27,24 @@ public class EditWindow {
     }
 
     public void displayEdit(NoteSettings noteSettings, Note note) {
-        this.stackPane = new StackPane();
+        StackPane stackPane = new StackPane();
         List<String> fonts = getFonts();
         ComboBox fontBox = new ComboBox();
+        ComboBox backgroundBox = new ComboBox();
+        for(String color : getColors())
+        {
+            Label colorLable = new Label("                         ");
+            colorLable.setStyle("-fx-background-color: "+color+";");
+            backgroundBox.getItems().add(colorLable);
+        }
 
+        backgroundBox.setPromptText(getColorName(noteSettings.getBackgroundColor().trim()));
         for (String font : fonts) {
             Label fontLabel = new Label(font);
             fontLabel.setStyle("-fx-font-family: " + font + ";");
             fontBox.getItems().add(fontLabel);
         }
+
 
         fontBox.setPromptText(noteSettings.getFont());
         ComboBox fontColorBox = new ComboBox();
@@ -51,7 +58,19 @@ public class EditWindow {
             fontColorBox.getItems().add(colorLabel);
         }
         fontColorBox.setPromptText(getColorName(noteSettings.getFontColor().trim()));
+        backgroundBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
+                Label backgroundColor = (Label) backgroundBox.getSelectionModel().getSelectedItem();
+
+                String background = backgroundColor.getStyle();
+                background = background.substring(background.lastIndexOf(" "), background.lastIndexOf(';'));
+                note.changeBackGroundColor(background);
+                note.newDisplay();
+                displayEdit(noteSettings, note);
+            }
+        });
 
         fontBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -77,8 +96,8 @@ public class EditWindow {
             }
         });
 
-        this.scene = new Scene(this.stackPane, 200, 300);
-        stackPane.getChildren().addAll(fontBox, fontColorBox);
+        Scene scene = new Scene(stackPane, 200, 300);
+        stackPane.getChildren().addAll(fontBox, fontColorBox,backgroundBox);
         this.stage.setScene(scene);
 
 
