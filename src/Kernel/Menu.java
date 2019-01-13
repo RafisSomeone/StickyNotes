@@ -48,7 +48,7 @@ for(PreNote preNote : noteAdder.getPreNotes())
 
 
         Button button = new Button();
-        button.setOnAction(new RefreshHandle(noteAdder));
+        button.setOnAction(new AddHandler(noteAdder));
         root.getChildren().addAll(button);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);

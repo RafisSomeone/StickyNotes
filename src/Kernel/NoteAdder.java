@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import sun.awt.image.ImageWatched;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -24,9 +25,19 @@ List<Note> notes= new LinkedList<>();
 
         return note;
     }
+    public void deleteNote(PreNote preNote)
+    {
+        for(PreNote preNoteTmp : preNotes)
+        {
+            if(preNoteTmp.equals(preNote)) {preNotes.remove(preNoteTmp);new Data().deleteData(preNote.getNodeID());break;}
 
-    public List<PreNote> getPreNotes() {
-        return preNotes;
+        }
+
+
+    }
+
+    public LinkedList<PreNote> getPreNotes() {
+        return (LinkedList<PreNote>) preNotes;
     }
 
 }

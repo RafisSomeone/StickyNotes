@@ -37,6 +37,11 @@ public class Note {
         stage.setScene(scene);
 
     }
+    public Stage getStage()
+    {
+        return this.stage;
+    }
+
     public int getNodeID()
     {
         return this.NoteID;
@@ -45,13 +50,13 @@ public class Note {
 
     public void newDisplay() {
 
-        stage.setResizable(false);
+        this.stage.setResizable(false);
         this.stage.show();
-        textArea.setWrapText(true);
-        textArea.setStyle("-fx-control-inner-background:#000000; -fx-font-family: Consolas; -fx-highlight-fill: #00ff00; -fx-highlight-text-fill: #000000; -fx-text-fill: #00ff00; ");
+        this.textArea.setWrapText(true);
+        this.textArea.setStyle("-fx-control-inner-background:#000000; -fx-font-family: Consolas; -fx-highlight-fill: #00ff00; -fx-highlight-text-fill: #000000; -fx-text-fill: #00ff00; ");
 
 
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+        this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
 
             public void handle(WindowEvent event) {

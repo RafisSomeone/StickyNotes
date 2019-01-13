@@ -11,11 +11,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class RefreshHandle implements EventHandler<ActionEvent> {
+public class AddHandler implements EventHandler<ActionEvent> {
 
  private NoteAdder noteAdder;
 
-public RefreshHandle(NoteAdder noteAdder){
+public AddHandler(NoteAdder noteAdder){
 this.noteAdder=noteAdder;
 
 }
@@ -33,7 +33,7 @@ this.noteAdder=noteAdder;
         Scene scene = new Scene(scrollPane,200,400);
 
        Button button = new Button();
-       button.setOnAction(new RefreshHandle(noteAdder));
+       button.setOnAction(new AddHandler(noteAdder));
 
         Note note = null;
         try {
@@ -46,6 +46,8 @@ this.noteAdder=noteAdder;
         {
             root.getChildren().add(preNote.getGroup());
         }
+        PreNote last = noteAdder.getPreNotes().getLast();
+
         root.getChildren().add(button);
 
 
@@ -54,6 +56,7 @@ this.noteAdder=noteAdder;
         stage.setScene(scene);
 
         stage.setResizable(false);
+        last.setDeleteAction(noteAdder,last,stage);
         stage.show();
         note.newDisplay();
 

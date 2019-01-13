@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Data {
@@ -33,6 +34,14 @@ public class Data {
         id.getID();
         id.increaseID();
 
+
+    }
+
+    public void deleteData(int id)
+    {
+        Path path = Paths.get(System.getProperty("user.home")+ File.separator+"StickyNotes"+File.separator+id+".txt");
+        File toDelet = new File (String.valueOf(path));
+        toDelet.delete();
 
     }
 
