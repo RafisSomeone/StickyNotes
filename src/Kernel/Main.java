@@ -17,10 +17,12 @@ public class Main extends Application {
         //  ImageView pic = new ImageView(image);
         //   Image image2 = new Image("https://gfx.chillizet.pl/var/zetchilli/storage/images/news/ludzie/3-rzeczy-ktore-najbardziej-podobaja-sie-mezczyznom-w-twarzy-kobiet-9734/577664-1-pol-PL/Te-3-rzeczy-w-twarzy-kobiet-najbardziej-podobaja-sie-mezczyznom_article.jpg");
         //   ImageView pic2 = new ImageView(image);
+        NoteAdder noteAdder = new NoteAdder();
+
         Data data = new Data();
-        data.run();
+        data.run(noteAdder,stage);
         Menu menu = new Menu();
-        menu.display(stage);
+        menu.display(stage,noteAdder);
 
 
     }

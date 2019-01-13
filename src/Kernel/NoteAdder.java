@@ -44,4 +44,10 @@ List<Note> notes= new LinkedList<>();
         return (LinkedList<Note>) notes;
     }
 
+    public void setNotes(List<Note> notes, List<PreNote> preNotes)
+    {
+        this.preNotes=preNotes;
+        this.notes=notes;
+    }
+
 }

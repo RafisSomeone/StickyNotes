@@ -37,6 +37,11 @@ public class Note {
         stage.setScene(scene);
 
     }
+    public void setNoteID(int id)
+    {
+        this.NoteID=id;
+    }
+
     public void closeStage()
     {
         this.stage.close();

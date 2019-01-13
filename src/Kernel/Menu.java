@@ -24,7 +24,7 @@ public class Menu {
 
 
 
-    public void display(Stage stage) {
+    public void display(Stage stage,NoteAdder noteAdder) {
 
         root.setStyle("-fx-background-color: blue");
 
@@ -36,7 +36,7 @@ public class Menu {
 
 
         Scene scene = new Scene(scrollPane,200,400);
-        NoteAdder noteAdder = new NoteAdder();
+
 
 
 for(PreNote preNote : noteAdder.getPreNotes())
