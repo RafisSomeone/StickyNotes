@@ -39,7 +39,33 @@ public class PreNote {
         NoteSettings noteSettings = note.getNoteSettings();
         this.stackPane.setStyle("-fx-background-color: " + noteSettings.getBackgroundColor() + ";");
         String text = note.getText();
-        if (text.length() > 14) text = text.substring(0, 14) + "...";
+        int ilosc;
+        switch (noteSettings.getFontsize()) {
+            case " 13px":
+                ilosc = 15;
+                break;
+            case " 16px":
+                ilosc = 12;
+                break;
+            case " 18px":
+                ilosc = 10;
+                break;
+
+            case " 24px":
+                ilosc = 7;
+                break;
+            case " 32px":
+                ilosc = 5;
+                break;
+
+
+
+            default:
+                ilosc = 14;
+                break;
+        }
+
+        if (text.length() > ilosc) text = text.substring(0, ilosc) + "...";
         this.title.setText(text);
         this.title.setStyle(noteSettings.getSettings());
 

@@ -43,12 +43,15 @@ public class EditWindow {
         Label small = new Label("Small");
         Label medium = new Label("Medium");
         Label large = new Label("Large");
+        Label huge = new Label("Huge");
+        Label giant = new Label("Giant");
 
-        fontSizeBox.getItems().addAll(small, medium, large);
-        String first = noteSettings.getFontsize().trim().substring(0, 1).toUpperCase();
-        String prompt = first + noteSettings.getFontsize().trim().substring(1);
+        fontSizeBox.getItems().addAll(small, medium, large,huge,giant);
+       // String first = noteSettings.getFontsize().trim().substring(0, 1).toUpperCase();
+       // String prompt = first + noteSettings.getFontsize().trim().substring(1);
 
-        fontSizeBox.setPromptText(prompt);
+        //fontSizeBox.setPromptText(prompt);
+        fontSizeBox.setPromptText(getSizeName(noteSettings.getFontsize()));
         List<String> fonts = getFonts();
         ComboBox fontBox = new ComboBox();
         ComboBox backgroundBox = new ComboBox();
@@ -105,8 +108,9 @@ public class EditWindow {
             @Override
             public void handle(ActionEvent event) {
                 Label fontsize = (Label) fontSizeBox.getSelectionModel().getSelectedItem();
-                String sizeString = fontsize.getText().toLowerCase();
-                note.changeFontSize(sizeString);
+              //  String sizeString = fontsize.getText().toLowerCase();
+               // note.changeFontSize(sizeString);
+                note.changeFontSize(getFontSize(fontsize.getText()));
                 displayEdit(noteSettings, note);
                 note.newDisplay();
 
@@ -171,6 +175,7 @@ public class EditWindow {
         return fonts;
     }
 
+
     public List<String> getColors() {
         List<String> colors = new LinkedList<>();
         colors.add("#FFFFFF");
@@ -192,6 +197,43 @@ public class EditWindow {
         return colors;
     }
 
+    public String getFontSize(String size) {
+
+        switch (size) {
+            case "Small":
+                return "13px";
+            case "Medium":
+                return "16px";
+            case "Large":
+                return "18px";
+            case "Huge":
+                return "24px";
+            case "Giant":
+                return "32px";
+
+            default:
+                return "16Fpx";
+        }
+    }
+
+
+    public String getSizeName(String size) {
+
+        switch (size) {
+            case " 13px":
+                return "Small";
+            case " 16px":
+                return "Medium";
+            case " 18px":
+                return "Large";
+            case " 24px":
+                return "Huge";
+            case " 32px":
+                return "Giant";
+            default:
+                return "Medium";
+        }
+    }
     public String getColorName(String color) {
 
         switch (color) {
