@@ -16,18 +16,18 @@ public class Data {
     public void run(NoteAdder noteAdder, Stage stage) throws IOException {
 
         File noteHomedir = new File(System.getProperty("user.home"), "StickyNotes");
-        if(!noteHomedir.exists()){
+        if (!noteHomedir.exists()) {
             Files.createDirectories(Paths.get(noteHomedir.getPath()));
         }
-Loader load = new Loader();
-        File noteData = new File(noteHomedir,"config.txt");
-        if(!noteData.exists()) {
+        Loader load = new Loader();
+        File noteData = new File(noteHomedir, "config.txt");
+        if (!noteData.exists()) {
             noteData.createNewFile();
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(noteData.getPath()));
             bufferedWriter.write("0");
             bufferedWriter.close();
         }
-        load.loadNotes(noteAdder,noteHomedir,stage);
+        load.loadNotes(noteAdder, noteHomedir, stage);
         NodeID id = new NodeID();
         id.getID();
         id.increaseID();
@@ -35,12 +35,11 @@ Loader load = new Loader();
 
     }
 
-    public void deleteData(int id)
-    {
+    public void deleteData(int id) {
 
-        Path path = Paths.get(System.getProperty("user.home")+ File.separator+"StickyNotes"+File.separator+id+".txt");
+        Path path = Paths.get(System.getProperty("user.home") + File.separator + "StickyNotes" + File.separator + id + ".txt");
 
-        File toDelete = new File (String.valueOf(path));
+        File toDelete = new File(String.valueOf(path));
         toDelete.delete();
 
     }

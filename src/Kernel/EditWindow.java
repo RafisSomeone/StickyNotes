@@ -21,7 +21,7 @@ import java.util.List;
 public class EditWindow {
     private Stage stage;
 
-    public EditWindow()  {
+    public EditWindow() {
 
 
         this.stage = new Stage();
@@ -33,7 +33,7 @@ public class EditWindow {
         StackPane stackPane = new StackPane();
         Label fontSelect = new Label();
         Label fontColorSelect = new Label();
-        Label fontBackSelect=new Label();
+        Label fontBackSelect = new Label();
         Label fontSizeSelect = new Label("Select font size:");
 
         fontSelect.setText("Select font:");
@@ -44,19 +44,17 @@ public class EditWindow {
         Label medium = new Label("Medium");
         Label large = new Label("Large");
 
-        fontSizeBox.getItems().addAll(small,medium,large);
-        String first = noteSettings.getFontsize().trim().substring(0,1).toUpperCase();
-        System.out.println(first);
-        String prompt = first+noteSettings.getFontsize().trim().substring(1);
+        fontSizeBox.getItems().addAll(small, medium, large);
+        String first = noteSettings.getFontsize().trim().substring(0, 1).toUpperCase();
+        String prompt = first + noteSettings.getFontsize().trim().substring(1);
 
         fontSizeBox.setPromptText(prompt);
         List<String> fonts = getFonts();
         ComboBox fontBox = new ComboBox();
         ComboBox backgroundBox = new ComboBox();
-        for(String color : getColors())
-        {
+        for (String color : getColors()) {
             Label colorLable = new Label("             ");
-            colorLable.setStyle("-fx-background-color: "+color+";");
+            colorLable.setStyle("-fx-background-color: " + color + ";");
             backgroundBox.getItems().add(colorLable);
         }
 
@@ -74,7 +72,6 @@ public class EditWindow {
         backgroundBox.setPrefWidth(96);
         fontBox.setPrefWidth(180);
         fontSizeBox.setPrefWidth(150);
-
 
 
         fontSelect.setTranslateX(-97);
@@ -110,7 +107,7 @@ public class EditWindow {
                 Label fontsize = (Label) fontSizeBox.getSelectionModel().getSelectedItem();
                 String sizeString = fontsize.getText().toLowerCase();
                 note.changeFontSize(sizeString);
-                displayEdit(noteSettings,note);
+                displayEdit(noteSettings, note);
                 note.newDisplay();
 
             }
@@ -155,7 +152,7 @@ public class EditWindow {
         });
 
         Scene scene = new Scene(stackPane, 300, 150);
-        stackPane.getChildren().addAll(fontBox, fontColorBox,backgroundBox,fontSelect,fontBackSelect,fontColorSelect,fontSizeBox,fontSizeSelect);
+        stackPane.getChildren().addAll(fontBox, fontColorBox, backgroundBox, fontSelect, fontBackSelect, fontColorSelect, fontSizeBox, fontSizeSelect);
         this.stage.setScene(scene);
 
 

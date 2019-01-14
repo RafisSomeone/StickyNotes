@@ -14,17 +14,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class NoteAdder {
-List<PreNote> preNotes= new LinkedList<>();
-List<Note> notes= new LinkedList<>();
-private Stage main;
+    List<PreNote> preNotes = new LinkedList<>();
+    List<Note> notes = new LinkedList<>();
+    private Stage main;
 
-public NoteAdder (Stage main)
-{
-    this.main=main;
-}
+    public NoteAdder(Stage main) {
+        this.main = main;
+    }
 
 
-    public Note noteAdd () throws IOException {
+    public Note noteAdd() throws IOException {
 
         Note note = new Note(this);
         PreNote preNote = new PreNote(note.getNodeID());
@@ -34,19 +33,21 @@ public NoteAdder (Stage main)
 
         return note;
     }
-    public void deleteNote(PreNote preNote)
-    {
-        for(PreNote preNoteTmp : preNotes)
-        {
-            if(preNoteTmp.equals(preNote)) {preNotes.remove(preNoteTmp);new Data().deleteData(preNote.getNodeID());break;}
+
+    public void deleteNote(PreNote preNote) {
+        for (PreNote preNoteTmp : preNotes) {
+            if (preNoteTmp.equals(preNote)) {
+                preNotes.remove(preNoteTmp);
+                new Data().deleteData(preNote.getNodeID());
+                break;
+            }
 
         }
 
 
     }
 
-    public void add(Note note)
-    {
+    public void add(Note note) {
         this.notes.add(note);
     }
 
@@ -59,10 +60,9 @@ public NoteAdder (Stage main)
         return (LinkedList<Note>) notes;
     }
 
-    public void setNotes(List<Note> notes, List<PreNote> preNotes)
-    {
-        this.preNotes=preNotes;
-        this.notes=notes;
+    public void setNotes(List<Note> notes, List<PreNote> preNotes) {
+        this.preNotes = preNotes;
+        this.notes = notes;
     }
 
     public Stage getMain() {

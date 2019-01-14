@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
-public class Note  {
+public class Note {
 
     private int NoteID;
     private Stage stage;
@@ -34,7 +34,7 @@ public class Note  {
     private NoteAdder noteAdder;
 
     public Note(NoteAdder noteAdder) throws IOException {
-        this.noteAdder=noteAdder;
+        this.noteAdder = noteAdder;
         noteAdder.add(this);
         NodeID id = new NodeID();
         id.increaseID();
@@ -56,13 +56,13 @@ public class Note  {
         this.textArea.setPrefSize(300, 290);
         this.editWindow = new EditWindow();
         this.noteSettings = new NoteSettings();
-        this.edit.setOnAction(e -> editWindow.displayEdit(this.noteSettings,this));
+        this.edit.setOnAction(e -> editWindow.displayEdit(this.noteSettings, this));
 
 
     }
 
-    public Note(TextArea textArea,NoteAdder noteAdder) throws IOException {
-        this.noteAdder=noteAdder;
+    public Note(TextArea textArea, NoteAdder noteAdder) throws IOException {
+        this.noteAdder = noteAdder;
         NodeID id = new NodeID();
         id.increaseID();
         this.NoteID = id.getID();
@@ -83,36 +83,33 @@ public class Note  {
         this.textArea.setPrefSize(300, 290);
         this.editWindow = new EditWindow();
         this.noteSettings = new NoteSettings();
-        this.edit.setOnAction(e -> editWindow.displayEdit(this.noteSettings,this));
+        this.edit.setOnAction(e -> editWindow.displayEdit(this.noteSettings, this));
 
 
     }
 
-    public String getText()
-    {
+    public String getText() {
         return this.textArea.getText();
     }
 
-    public void setNoteSettings(NoteSettings noteSettings)
-    {
-        this.noteSettings=noteSettings;
+    public void setNoteSettings(NoteSettings noteSettings) {
+        this.noteSettings = noteSettings;
     }
-    public void changeFont(String font)
-    {
+
+    public void changeFont(String font) {
         this.noteSettings.setFont(font);
 
     }
-    public void changeFontSize (String size)
-    {
+
+    public void changeFontSize(String size) {
         this.noteSettings.setFontsize(size);
     }
-    public void changeFontColor(String color)
-    {
+
+    public void changeFontColor(String color) {
         this.noteSettings.setFontColor(color);
     }
 
-    public void changeBackGroundColor(String color)
-    {
+    public void changeBackGroundColor(String color) {
         this.noteSettings.setBackgroundColor(color);
     }
 
@@ -155,11 +152,9 @@ public class Note  {
 
             public void handle(WindowEvent event) {
 
-                String outPut = noteSettings.getFont().trim()+"\n"+noteSettings.getFontColor().trim()+"\n"+noteSettings.getBackgroundColor().trim()+"\n"+noteSettings.getFontsize().trim()+"\n";
-                outPut=outPut+textArea.getText();
+                String outPut = noteSettings.getFont().trim() + "\n" + noteSettings.getFontColor().trim() + "\n" + noteSettings.getBackgroundColor().trim() + "\n" + noteSettings.getFontsize().trim() + "\n";
+                outPut = outPut + textArea.getText();
                 editWindow.closeEdit();
-
-
 
 
                 File file = new File(new File(System.getProperty("user.home")) + File.separator + "StickyNotes" + File.separator + NoteID + ".txt");
@@ -172,7 +167,6 @@ public class Note  {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
 
 
                 new Refresh().refresh(noteAdder.getMain(), noteAdder);

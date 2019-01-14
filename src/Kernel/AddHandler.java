@@ -13,12 +13,13 @@ import java.io.IOException;
 
 public class AddHandler implements EventHandler<ActionEvent> {
 
- private NoteAdder noteAdder;
+    private NoteAdder noteAdder;
 
-public AddHandler(NoteAdder noteAdder){
-this.noteAdder=noteAdder;
+    public AddHandler(NoteAdder noteAdder) {
+        this.noteAdder = noteAdder;
 
-}
+    }
+
     @Override
     public void handle(ActionEvent event) {
 
@@ -30,11 +31,11 @@ this.noteAdder=noteAdder;
         scrollPane.setContent(root);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        Scene scene = new Scene(scrollPane,200,400);
+        Scene scene = new Scene(scrollPane, 200, 400);
 
-       Button button = new Button();
+        Button button = new Button();
 
-       button.setOnAction(new AddHandler(noteAdder));
+        button.setOnAction(new AddHandler(noteAdder));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Note note = null;
         try {
@@ -44,10 +45,7 @@ this.noteAdder=noteAdder;
         }
 
 
-
-
-        for(PreNote preNote : noteAdder.getPreNotes())
-        {
+        for (PreNote preNote : noteAdder.getPreNotes()) {
             root.getChildren().add(preNote.getGroup());
         }
         PreNote last = noteAdder.getPreNotes().getLast();
@@ -61,14 +59,13 @@ this.noteAdder=noteAdder;
         stage.setScene(scene);
 
         stage.setResizable(false);
-        last.setDeleteAction(noteAdder,last,stage,note);
+        last.setDeleteAction(noteAdder, last, stage, note);
         stage.show();
         note.newDisplay();
 
 
-
         //  menu.display(stage);
-    // note.newDisplay();
+        // note.newDisplay();
 
 
     }

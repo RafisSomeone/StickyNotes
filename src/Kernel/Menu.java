@@ -18,35 +18,30 @@ public class Menu {
     private VBox root;
     private List<PreNote> preNotes = new LinkedList<>();
 
-     private Stage stage;
+    private Stage stage;
 
     public Menu(Stage stage) {
         root = new VBox();
-        this.stage=stage;
+        this.stage = stage;
     }
 
 
-
-    public void display(Stage stage,NoteAdder noteAdder) {
+    public void display(Stage stage, NoteAdder noteAdder) {
 
 
         ScrollPane scrollPane = new ScrollPane();
 
         scrollPane.setContent(root);
-   //  root.setStyle("-fx-background-color: red");
+        //  root.setStyle("-fx-background-color: red");
 
 
-
-        Scene scene = new Scene(scrollPane,200,400);
-
+        Scene scene = new Scene(scrollPane, 200, 400);
 
 
-for(PreNote preNote : noteAdder.getPreNotes())
-{
-    root.getChildren().add(preNote.getGroup());
+        for (PreNote preNote : noteAdder.getPreNotes()) {
+            root.getChildren().add(preNote.getGroup());
 
-}
-
+        }
 
 
         Button button = new Button();
@@ -64,14 +59,11 @@ for(PreNote preNote : noteAdder.getPreNotes())
         stage.show();
 
 
-
     }
 
-    public Stage getStage()
-    {
+    public Stage getStage() {
         return this.stage;
     }
-
 
 
 }

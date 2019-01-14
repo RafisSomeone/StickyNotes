@@ -16,6 +16,7 @@ public class PreNote {
 
     int NoteID;
     Button open = new Button();
+
     public PreNote(int id) {
         this.NoteID = id;
         this.stackPane.setPrefSize(182, 50);
@@ -34,12 +35,11 @@ public class PreNote {
 
     }
 
-    public void refreshPrenote(Note note)
-    {
+    public void refreshPrenote(Note note) {
         NoteSettings noteSettings = note.getNoteSettings();
-        this.stackPane.setStyle("-fx-background-color: "+noteSettings.getBackgroundColor()+";");
+        this.stackPane.setStyle("-fx-background-color: " + noteSettings.getBackgroundColor() + ";");
         String text = note.getText();
-        if(text.length()>14) text=text.substring(0,14)+"...";
+        if (text.length() > 14) text = text.substring(0, 14) + "...";
         this.title.setText(text);
         this.title.setStyle(noteSettings.getSettings());
 
@@ -47,7 +47,7 @@ public class PreNote {
     }
 
 
-    public void setDeleteAction(NoteAdder noteAdder, PreNote preNote, Stage stage,Note note) {
+    public void setDeleteAction(NoteAdder noteAdder, PreNote preNote, Stage stage, Note note) {
         this.delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -66,7 +66,7 @@ public class PreNote {
     }
 
     public void setOpenAction(Note note) {
-       // this.open.setOnDragDetected((EventHandler<Event>) event -> note.newDisplay());
+        // this.open.setOnDragDetected((EventHandler<Event>) event -> note.newDisplay());
         this.open.setOnAction((EventHandler<ActionEvent>) event -> note.newDisplay());
     }
 
