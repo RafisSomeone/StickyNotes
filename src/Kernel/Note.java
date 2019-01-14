@@ -92,6 +92,7 @@ public class Note  {
     {
         return this.textArea.getText();
     }
+
     public void setNoteSettings(NoteSettings noteSettings)
     {
         this.noteSettings=noteSettings;
@@ -100,6 +101,10 @@ public class Note  {
     {
         this.noteSettings.setFont(font);
 
+    }
+    public void changeFontSize (String size)
+    {
+        this.noteSettings.setFontsize(size);
     }
     public void changeFontColor(String color)
     {
@@ -143,13 +148,14 @@ public class Note  {
         this.stage.show();
         this.textArea.setWrapText(true);
         this.textArea.setStyle(this.noteSettings.getSettings());
+        System.out.println(this.noteSettings.getSettings());
 
         this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
 
             public void handle(WindowEvent event) {
 
-                String outPut = noteSettings.getFont().trim()+"\n"+noteSettings.getFontColor().trim()+"\n"+noteSettings.getBackgroundColor().trim()+"\n";
+                String outPut = noteSettings.getFont().trim()+"\n"+noteSettings.getFontColor().trim()+"\n"+noteSettings.getBackgroundColor().trim()+"\n"+noteSettings.getFontsize().trim()+"\n";
                 outPut=outPut+textArea.getText();
                 editWindow.closeEdit();
 

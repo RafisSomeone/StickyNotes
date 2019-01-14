@@ -36,10 +36,11 @@ public class Loader {
                 noteSettings.setFont(lines.get(0));
                 noteSettings.setFontColor(lines.get(1));
                 noteSettings.setBackgroundColor(lines.get(2));
+                noteSettings.setFontsize(lines.get(3));
 
 
             String text = "";
-            for(int i=3; i<lines.size();i++)
+            for(int i=4; i<lines.size();i++)
             {
                 text=text+lines.get(i);
                 if(i!=lines.size()-1)text+="\n";

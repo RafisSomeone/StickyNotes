@@ -29,16 +29,27 @@ public class EditWindow {
     }
 
     public void displayEdit(NoteSettings noteSettings, Note note) {
-
+        this.stage.setResizable(false);
         StackPane stackPane = new StackPane();
         Label fontSelect = new Label();
         Label fontColorSelect = new Label();
         Label fontBackSelect=new Label();
+        Label fontSizeSelect = new Label("Select font size:");
 
-        fontSelect.setText("Select fot:");
+        fontSelect.setText("Select font:");
         fontColorSelect.setText("Select font color:");
         fontBackSelect.setText("Select background color:");
+        ComboBox fontSizeBox = new ComboBox();
+        Label small = new Label("Small");
+        Label medium = new Label("Medium");
+        Label large = new Label("Large");
 
+        fontSizeBox.getItems().addAll(small,medium,large);
+        String first = noteSettings.getFontsize().trim().substring(0,1).toUpperCase();
+        System.out.println(first);
+        String prompt = first+noteSettings.getFontsize().trim().substring(1);
+
+        fontSizeBox.setPromptText(prompt);
         List<String> fonts = getFonts();
         ComboBox fontBox = new ComboBox();
         ComboBox backgroundBox = new ComboBox();
@@ -62,28 +73,49 @@ public class EditWindow {
         fontColorBox.setPrefWidth(150);
         backgroundBox.setPrefWidth(96);
         fontBox.setPrefWidth(180);
+        fontSizeBox.setPrefWidth(150);
 
 
 
-        fontSelect.setTranslateX(-100);
+        fontSelect.setTranslateX(-97);
         fontSelect.setTranslateY(-60);
         fontColorSelect.setTranslateX(-78);
         fontColorSelect.setTranslateY(-30);
         fontBackSelect.setTranslateX(-51);
         fontBackSelect.setTranslateY(0);
+        fontSizeSelect.setTranslateX(-80);
+        fontSizeSelect.setTranslateY(30);
 
         fontBox.setTranslateX(40);
         fontBox.setTranslateY(-60);
         fontColorBox.setTranslateX(56);
         fontColorBox.setTranslateY(-30);
         backgroundBox.setTranslateX(83);
-        backgroundBox.setTranslateY(2);
+        backgroundBox.setTranslateY(0);
+        fontSizeBox.setTranslateX(57);
+        fontSizeBox.setTranslateY(30);
+
+
         for (String color : getColors()) {
             Label colorLabel = new Label("                         ");
             colorLabel.setStyle("-fx-background-color: " + color + ";");
             fontColorBox.getItems().add(colorLabel);
         }
         fontColorBox.setPromptText(getColorName(noteSettings.getFontColor().trim()));
+
+
+        fontSizeBox.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Label fontsize = (Label) fontSizeBox.getSelectionModel().getSelectedItem();
+                String sizeString = fontsize.getText().toLowerCase();
+                note.changeFontSize(sizeString);
+                displayEdit(noteSettings,note);
+                note.newDisplay();
+
+            }
+        });
+
         backgroundBox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -123,7 +155,7 @@ public class EditWindow {
         });
 
         Scene scene = new Scene(stackPane, 300, 150);
-        stackPane.getChildren().addAll(fontBox, fontColorBox,backgroundBox,fontSelect,fontBackSelect,fontColorSelect);
+        stackPane.getChildren().addAll(fontBox, fontColorBox,backgroundBox,fontSelect,fontBackSelect,fontColorSelect,fontSizeBox,fontSizeSelect);
         this.stage.setScene(scene);
 
 

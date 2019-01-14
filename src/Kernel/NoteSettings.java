@@ -7,20 +7,25 @@ public class NoteSettings {
     private String font;
     private String fontColor;
     private String backgroundColor;
+    private String fontsize;
 
 public NoteSettings()
 {
     this.font = "-fx-font-family: DejaVu Sans;";
     this.fontColor = "-fx-text-fill: #000000;";
-    this.backgroundColor= "-fx-control-inner-background: #FFFF00;";
+    this.backgroundColor= "-fx-control-inner-background: #FF0000;";
+    this.fontsize = "-fx-font-size: medium;";
 
-
+}
+public String getFontsize()
+{
+    return this.fontsize.substring(this.fontsize.lastIndexOf(' '),this.fontsize.lastIndexOf(';'));
 }
 
 public String getSettings()
 {
 
-    return font+" "+fontColor+" "+backgroundColor+" ";
+    return font+" "+fontColor+" "+backgroundColor+" "+fontsize;
 
 }
 
@@ -48,5 +53,9 @@ public String getBackgroundColor()
 
     public void setBackgroundColor(String backgroundColor) {
         this.backgroundColor = "-fx-control-inner-background: "+backgroundColor+";";
+    }
+    public void setFontsize(String fontsize)
+    {
+        this.fontsize = "-fx-font-size: "+fontsize+";";
     }
 }
