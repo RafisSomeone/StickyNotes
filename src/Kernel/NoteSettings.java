@@ -12,7 +12,7 @@ public NoteSettings()
 {
     this.font = "-fx-font-family: DejaVu Sans;";
     this.fontColor = "-fx-text-fill: #000000;";
-    this.backgroundColor= "-fx-control-inner-background: #FFFFFF;";
+    this.backgroundColor= "-fx-control-inner-background: #FFFF00;";
 
 
 }

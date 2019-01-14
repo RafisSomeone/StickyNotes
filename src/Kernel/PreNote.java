@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -12,6 +13,7 @@ public class PreNote {
     StackPane stackPane = new StackPane();
     Label title = new Label("Title");
     Button delete = new Button();
+
     int NoteID;
     Button open = new Button();
     public PreNote(int id) {
@@ -19,7 +21,6 @@ public class PreNote {
         this.stackPane.setPrefSize(182, 50);
 
         this.stackPane.getChildren().add(this.title);
-        this.stackPane.setStyle("-fx-background-color: yellow");
         this.delete.setTranslateX(60);
         this.delete.setTranslateY(0);
         this.title.setTranslateX(-20);
@@ -28,6 +29,7 @@ public class PreNote {
         this.stackPane.getChildren().add(this.open);
         this.open.setStyle("-fx-background-color: transparent;");
         this.stackPane.getChildren().add(this.delete);
+        this.delete.setStyle("-fx-graphic: url('http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-8/16/Trash-can-icon.png')");
 
 
     }

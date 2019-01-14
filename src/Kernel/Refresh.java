@@ -21,6 +21,7 @@ public class Refresh {
         Scene scene = new Scene(scrollPane,200,400);
 
         Button button = new Button();
+        button.setStyle("-fx-graphic: url('http://icons.iconarchive.com/icons/hopstarter/button/16/Button-Add-icon.png')");
         button.setOnAction(new AddHandler(noteAdder));
         for(PreNote preNote : noteAdder.getPreNotes())
         {

@@ -60,7 +60,7 @@ public class EditWindow {
         fontBox.setPromptText(noteSettings.getFont());
         ComboBox fontColorBox = new ComboBox();
         fontColorBox.setPrefWidth(150);
-        backgroundBox.setPrefWidth(90);
+        backgroundBox.setPrefWidth(96);
         fontBox.setPrefWidth(180);
 
 
@@ -76,7 +76,7 @@ public class EditWindow {
         fontBox.setTranslateY(-60);
         fontColorBox.setTranslateX(56);
         fontColorBox.setTranslateY(-30);
-        backgroundBox.setTranslateX(86);
+        backgroundBox.setTranslateX(83);
         backgroundBox.setTranslateY(2);
         for (String color : getColors()) {
             Label colorLabel = new Label("                         ");

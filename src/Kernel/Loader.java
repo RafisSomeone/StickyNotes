@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,7 +22,9 @@ public class Loader {
 
         LinkedList<PreNote> preNotes = new LinkedList<>();
         LinkedList<Note> notes = new LinkedList<>();
-        for (File file : noteHomeDir.listFiles()) {
+        File[] files =noteHomeDir.listFiles();
+        Arrays.sort(files);
+        for (File file : files) {
             if (file.getName().equals("config.txt")) continue;
             String name =file.getName();
             name = name.substring(0,name.lastIndexOf('.'));

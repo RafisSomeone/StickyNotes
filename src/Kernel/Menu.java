@@ -48,6 +48,7 @@ for(PreNote preNote : noteAdder.getPreNotes())
 
 
         Button button = new Button();
+        button.setStyle("-fx-graphic: url('http://icons.iconarchive.com/icons/hopstarter/button/16/Button-Add-icon.png')");
         button.setOnAction(new AddHandler(noteAdder));
         button.setTranslateX(0);
         root.getChildren().addAll(button);
