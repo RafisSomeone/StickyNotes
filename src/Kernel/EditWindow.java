@@ -208,7 +208,7 @@ public class EditWindow {
             case "#800000":
                 return "MAROON";
             case "#FFFF00":
-                return "YELLOW";
+                return "SUN";
             case "#808000":
                 return "OLIVE";
             case "#00FF00":
