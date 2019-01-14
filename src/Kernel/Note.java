@@ -35,6 +35,7 @@ public class Note  {
 
     public Note(NoteAdder noteAdder) throws IOException {
         this.noteAdder=noteAdder;
+        noteAdder.add(this);
         NodeID id = new NodeID();
         id.increaseID();
         this.NoteID = id.getID();
@@ -169,6 +170,8 @@ public class Note  {
 
 
                 new Refresh().refresh(noteAdder.getMain(), noteAdder);
+
+
             }
         });
 

@@ -31,12 +31,20 @@ public class EditWindow {
     public void displayEdit(NoteSettings noteSettings, Note note) {
 
         StackPane stackPane = new StackPane();
+        Label fontSelect = new Label();
+        Label fontColorSelect = new Label();
+        Label fontBackSelect=new Label();
+
+        fontSelect.setText("Select fot:");
+        fontColorSelect.setText("Select font color:");
+        fontBackSelect.setText("Select background color:");
+
         List<String> fonts = getFonts();
         ComboBox fontBox = new ComboBox();
         ComboBox backgroundBox = new ComboBox();
         for(String color : getColors())
         {
-            Label colorLable = new Label("                         ");
+            Label colorLable = new Label("             ");
             colorLable.setStyle("-fx-background-color: "+color+";");
             backgroundBox.getItems().add(colorLable);
         }
@@ -51,10 +59,25 @@ public class EditWindow {
 
         fontBox.setPromptText(noteSettings.getFont());
         ComboBox fontColorBox = new ComboBox();
+        fontColorBox.setPrefWidth(150);
+        backgroundBox.setPrefWidth(90);
+        fontBox.setPrefWidth(180);
 
-        fontColorBox.setTranslateX(0);
-        fontColorBox.setTranslateY(100);
 
+
+        fontSelect.setTranslateX(-100);
+        fontSelect.setTranslateY(-60);
+        fontColorSelect.setTranslateX(-78);
+        fontColorSelect.setTranslateY(-30);
+        fontBackSelect.setTranslateX(-51);
+        fontBackSelect.setTranslateY(0);
+
+        fontBox.setTranslateX(40);
+        fontBox.setTranslateY(-60);
+        fontColorBox.setTranslateX(56);
+        fontColorBox.setTranslateY(-30);
+        backgroundBox.setTranslateX(86);
+        backgroundBox.setTranslateY(2);
         for (String color : getColors()) {
             Label colorLabel = new Label("                         ");
             colorLabel.setStyle("-fx-background-color: " + color + ";");
@@ -99,8 +122,8 @@ public class EditWindow {
             }
         });
 
-        Scene scene = new Scene(stackPane, 200, 300);
-        stackPane.getChildren().addAll(fontBox, fontColorBox,backgroundBox);
+        Scene scene = new Scene(stackPane, 300, 150);
+        stackPane.getChildren().addAll(fontBox, fontColorBox,backgroundBox,fontSelect,fontBackSelect,fontColorSelect);
         this.stage.setScene(scene);
 
 

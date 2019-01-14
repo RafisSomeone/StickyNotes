@@ -14,9 +14,9 @@ public class Refresh {
         ScrollPane scrollPane = new ScrollPane();
 
         scrollPane.setContent(root);
-
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
 
         Scene scene = new Scene(scrollPane,200,400);
 
@@ -26,10 +26,9 @@ public class Refresh {
         {
             for (Note note : noteAdder.getNotes())
             {
-                System.out.println(note.getNodeID());
-                System.out.println(preNote.getNodeID());
-                if(note.getNodeID()==preNote.getNodeID()){preNote.refreshPrenote(note);System.out.println("1");}
+                if(note.getNodeID()==preNote.getNodeID()){preNote.refreshPrenote(note);}
             }
+
             root.getChildren().add(preNote.getGroup());
 
 

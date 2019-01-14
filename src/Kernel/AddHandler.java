@@ -33,6 +33,7 @@ this.noteAdder=noteAdder;
         Scene scene = new Scene(scrollPane,200,400);
 
        Button button = new Button();
+        button.setTranslateX(0);
        button.setOnAction(new AddHandler(noteAdder));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Note note = null;
@@ -42,11 +43,15 @@ this.noteAdder=noteAdder;
             e.printStackTrace();
         }
 
+
+
+
         for(PreNote preNote : noteAdder.getPreNotes())
         {
             root.getChildren().add(preNote.getGroup());
         }
         PreNote last = noteAdder.getPreNotes().getLast();
+
         last.refreshPrenote(note);
         root.getChildren().add(button);
 

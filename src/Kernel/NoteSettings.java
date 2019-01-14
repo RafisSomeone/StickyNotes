@@ -26,7 +26,7 @@ public String getSettings()
 
 public String getFont()
 {
-    return this.font.substring(this.font.lastIndexOf(' '),this.font.lastIndexOf(';'));
+    return this.font.substring(this.font.lastIndexOf(':')+1,this.font.lastIndexOf(';'));
 
 }
 public String getFontColor()

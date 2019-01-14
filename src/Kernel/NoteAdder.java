@@ -45,6 +45,12 @@ public NoteAdder (Stage main)
 
     }
 
+    public void add(Note note)
+    {
+        this.notes.add(note);
+    }
+
+
     public LinkedList<PreNote> getPreNotes() {
         return (LinkedList<PreNote>) preNotes;
     }
