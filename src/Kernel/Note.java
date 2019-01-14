@@ -145,7 +145,7 @@ public class Note {
         this.stage.show();
         this.textArea.setWrapText(true);
         this.textArea.setStyle(this.noteSettings.getSettings());
-        System.out.println(this.noteSettings.getSettings());
+
 
         this.stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
