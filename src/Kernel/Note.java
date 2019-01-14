@@ -1,22 +1,17 @@
 package Kernel;
 
 
-import javafx.event.ActionEvent;
+
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
-import javax.swing.*;
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 
 
 public class Note {
