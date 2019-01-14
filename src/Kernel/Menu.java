@@ -1,11 +1,13 @@
 package Kernel;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.layout.VBox;
 import javafx.stage.WindowEvent;
 
 import java.util.LinkedList;
@@ -31,7 +33,7 @@ public class Menu {
         ScrollPane scrollPane = new ScrollPane();
 
         scrollPane.setContent(root);
-
+   //  root.setStyle("-fx-background-color: red");
 
 
 
@@ -54,7 +56,7 @@ for(PreNote preNote : noteAdder.getPreNotes())
         root.getChildren().addAll(button);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-
+        Pane back = new Pane();
         stage.setTitle("StickyNotes");
         stage.setScene(scene);
         stage.setResizable(false);
